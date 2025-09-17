@@ -1,3 +1,117 @@
+body {
+    background-image: url('img/background.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    min-height: 100vh;
+}
+h1, h2, h3 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+}
+
+p, span, .temp, .date, .location {
+  font-family: 'Roboto', sans-serif;
+}
+/* --------------- 480 ----------------- */
+
+/* --------------- 481 ----------------- */
+
+/* --------------- 769 ----------------- */
+
+/* --------------- 1025 ---------------- */
 .main {
-    background-color: blanchedalmond;
+    border: 1px solid black;
+    height: 100%;
+}
+.up_container {
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+}
+.up_box {
+    border: 1px solid black;
+}
+.up_box_title {
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    font-size: 1.5rem;
+    text-shadow:
+        0.5px 0.5px 0 #ccc,
+        1px 1px 0 #bbb,
+        1.5px 1.5px 0 #aaa,
+        2px 2px 0 #999,
+        2.5px 2.5px 0 #888,
+        3px 3px 0 #777,
+        3.5px 3.5px 0 #666;
+}
+.up_box_window {
+    border: 1px solid rgb(255, 0, 0);
+    display: flex;
+    flex-direction: column;
+    
+    justify-content: center;
+    align-items: center; /*no work*/
+    max-width: 100%;
+    min-width: 400px;
+    height: 100%;
+}
+.window {
+    border: 1px solid rgb(110, 110, 110);
+    width: 100%;
+    max-width: 800px;
+    min-width: 350px;
+    height: 400px;
+    background-color: #c8c8c8;
+    opacity: 0.3;
+}
+.down_container {
+    border: 1px solid black;
+}
+.down_box {
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.fieldmysity {
+    border: 1px solid black;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    border-radius: 5px;
+    opacity: 0.5;
+}
+.input_text {
+    width: 100%;
+    max-width: 400px;
+    min-width: 200px;
+    height: 40px;
+    font-size: 1.3rem;
+}
+.box_buttons {
+    border: 1px solid black;
+    margin-bottom: 25px;
+}
+.temperature_button {
+    border: 1px solid black;
+    border-radius: 5px;
+    width: 80px;
+    height: 35px;
+    background-color: rgb(255, 253, 127);
+}
+.weather_conditions_button {
+    border: 1px solid black;
+    border-radius: 5px;
+    width: 80px;
+    height: 35px;
+    background-color: rgb(255, 253, 127);
+    margin-left: 25px;
+}
+.footer_container {
+    border: 1px solid black;
+    height: 100%;
+    max-height: 300px;
+    min-height: 60px;
 }
