@@ -23,6 +23,16 @@ fetch('https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&hou
     })
 */
 
+// add div for city
+const window_div = document.querySelector(".window");
+const create_newdiv_city = document.createElement("div");
+create_newdiv_city.className = "window_city"; // class for css
+window_div.appendChild(create_newdiv_city);
+// add div for temperature
+const create_newdiv_temperature = document.createElement("div");
+create_newdiv_temperature.className = "window_temperature";
+window_div.appendChild(create_newdiv_temperature);
+
 // 1. Enter city in the form
 // 2. Click the "Temperature" button
 // 3. Send request to Open-Meteo Geocoding API to get coordinates (latitude and longitude)
@@ -38,30 +48,40 @@ let search_temperature_button = document.querySelector('.temperature_button');
 let search_weather_conditions_button = document.querySelector('.conditions_button');
 let search_input_form = document.getElementById('input_form');
 
-function temperature_button_push() {
+function temperature_button_push() { // button go
     
-    const city = search_input_form.value.trim();
-    console.log("city", city);
-    fetchData(city);
+    const city = search_input_form.value.trim(); // use data and cut spaces
+    console.log("city", city); // checker
+    currentcity.name = city; // goes to arrow
+    fetchData(city); // run function
 }
 
+const currentcity = {}; // transfer city to another function
 
 async function fetchData(cityName) {
   try {
-    const response = await fetch(`https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(cityName)}&count=1`);
-    
-    /*if (!response.ok) {
-        console.log("Status_checker", response.status);
+    const request = await fetch(`https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(cityName)}&count=1`);
+    /*if (!request.ok) {
+        console.log("Status_checker", request.status);
       throw new Error('Request failed');
     }*/
-    
-    const transform_data = await response.json();
-    console.log("data_async", transform_data);
-
-    const lat = data.results[0];
+    const transform_data = await request.json(); // get coordinates
+    console.log("transform_data_async", transform_data); // checker
+    /*
+    const lat = transform_data.results[0];
     console.log("lat", lat);
-    const long = data.results[0];
+    const long = transform_data.results[0];
     console.log("long", long);
+    */
+    const {latitude, longitude} = transform_data.results[0]; 
+    console.log("latitude", latitude, "longitude", longitude); // checker
+
+    const respond = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current_weather=true`);
+    const transform_data1 = await respond.json(); // get current temperature
+    console.log("transform_data_async1", transform_data1); // checker
+
+    const current_temperature = transform_data1.current_weather.temperature; // from array
+    document.querySelector('.window').innerHTML = `City: ${currentcity.name}, temperature: ${current_temperature}`; // show data
     /*
     weather = data;
     weather_latitude(weather);
@@ -71,13 +91,4 @@ async function fetchData(cityName) {
     console.error('An error occurred:', error);
   }
 }
-/*
-function weather_latitude(data) {
-    console.log("weather_latitude", data.latitude);
-}
-function weather_longitude(data) {
-    console.log("weather_longitude", data.longitude);
-}
-
-fetchData();*/
 
