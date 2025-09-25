@@ -72,26 +72,51 @@ p, span, .temp, .date, .location {
     
 }
 .window {
+    display: grid;
+    grid-template-columns: [col1] min-content [col2] min-content;
+    grid-template-rows: [ro1] min-content [ro2] min-content;
+    justify-content: center;
+    align-content: center;
     border: 1px solid rgb(110, 110, 110);
-    width: 100%;
+    width: auto;
     max-width: 1000px;
     min-width: 350px;
     height: 100%;
-    max-height: 1000px;
+    max-height: 100vh;
     min-height: 250px;
-    background-color: #c8c8c8;
-    opacity: 0.3;
+    height: fit-content;
+    background-color: rgba(200, 200, 200, 0.3);
+    
     margin: 25px 25px 25px 25px;
+    padding: 25px 25px 25px 25px;
 }
 .window_city {
+    display: flex;
+    flex-direction: row;
     border: 1px solid black;
-    width: 100px;
-    height: 100px;
+    width: auto;
+    min-width: 100px;
+    height: auto;
+    min-height: 100px;
+    font-size: 100px;
+    justify-content: center;
+    align-items: center;
+    padding: 25px 25px 25px 25px;
+    
 }
 .window_temperature {
+    display: flex;
+    flex-direction: row;
     border: 1px solid black;
-    width: 100px;
-    height: 100px;
+    width: auto;
+    min-width: 100px;
+    height: auto;
+    min-height: 100px;
+    font-size: 100px;
+    justify-content: center;
+    align-items: center;
+    padding: 25px 25px 25px 25px;
+    
 }
 .down_container {
     border: 1px solid black;
@@ -134,14 +159,14 @@ p, span, .temp, .date, .location {
 .temperature_button {
     border: 1px solid black;
     border-radius: 5px;
-    width: 80px;
+    width: 90px;
     height: 35px;
     background-color: rgb(255, 253, 127);
 }
 .weather_conditions_button {
     border: 1px solid black;
     border-radius: 5px;
-    width: 80px;
+    width: 90px;
     height: 35px;
     background-color: rgb(255, 253, 127);
     margin-left: 25px;

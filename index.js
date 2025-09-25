@@ -56,7 +56,7 @@ function temperature_button_push() { // button go
     fetchData(city); // run function
 }
 
-const currentcity = {}; // transfer city to another function
+const currentcity = {}; // transfer city to another function .name
 
 async function fetchData(cityName) {
   try {
@@ -81,7 +81,12 @@ async function fetchData(cityName) {
     console.log("transform_data_async1", transform_data1); // checker
 
     const current_temperature = transform_data1.current_weather.temperature; // from array
-    document.querySelector('.window').innerHTML = `City: ${currentcity.name}, temperature: ${current_temperature}`; // show data
+    document.querySelector('.window_city').innerHTML = `${currentcity.name}`; // show city
+    document.querySelector('.window_temperature').innerHTML = `+${current_temperature}°C`; // show temp
+    // current_weather.weathercode
+    const current_weather = transform_data1.current_weather.weathercode; // get code weather
+    console.log("current_weather", current_weather); // checker
+
     /*
     weather = data;
     weather_latitude(weather);
