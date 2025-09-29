@@ -86,7 +86,7 @@ p, span, .temp, .date, .location {
     min-height: 250px;
     height: fit-content;
     background-color: rgba(200, 200, 200, 0.3);
-    
+    border-radius: 20px;
     margin: 25px 25px 25px 25px;
     padding: 25px 25px 25px 25px;
 }
@@ -146,9 +146,7 @@ p, span, .temp, .date, .location {
     opacity: 0.5;
 }
 #input_form {
-    width: 100%;
-    max-width: 400px;
-    min-width: 200px;
+    width: 400px;
     height: 40px;
     font-size: 1.3rem;
 }
@@ -163,7 +161,7 @@ p, span, .temp, .date, .location {
     height: 35px;
     background-color: rgb(255, 253, 127);
 }
-.weather_conditions_button {
+.conditions_button {
     border: 1px solid black;
     border-radius: 5px;
     width: 90px;

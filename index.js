@@ -56,7 +56,7 @@ function temperature_button_push() { // button go
     fetchData(city); // run function
 }
 
-const currentcity = {}; // transfer city to another function .name
+const currentcity = {}; // transfer data to another function .name .codeweather
 
 async function fetchData(cityName) {
   try {
@@ -80,13 +80,14 @@ async function fetchData(cityName) {
     const transform_data1 = await respond.json(); // get current temperature
     console.log("transform_data_async1", transform_data1); // checker
 
-    const current_temperature = transform_data1.current_weather.temperature; // from array
+    const current_temperature = (transform_data1.current_weather.temperature * 9/5) + 32; // from array
     document.querySelector('.window_city').innerHTML = `${currentcity.name}`; // show city
-    document.querySelector('.window_temperature').innerHTML = `+${current_temperature}°C`; // show temp
+    document.querySelector('.window_temperature').innerHTML = `${Math.floor(current_temperature)}°F`; // show temp
     // current_weather.weathercode
     const current_weather = transform_data1.current_weather.weathercode; // get code weather
     console.log("current_weather", current_weather); // checker
-
+    currentcity.codeweather = current_weather;
+   
     /*
     weather = data;
     weather_latitude(weather);
@@ -97,4 +98,12 @@ async function fetchData(cityName) {
   }
 }
 
+// add bottom condition
+search_input_form.addEventListener("input", function() {
+  if (search_input_form.value.trim() !== "") {
+    search_weather_conditions_button.style.display = "inline-block";
+  } else {
+      search_weather_conditions_button.style.display = "none";
+    }
+});
 
