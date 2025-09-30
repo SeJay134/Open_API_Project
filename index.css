@@ -1,5 +1,5 @@
 body {
-    background-image: url('img/background.jpg');
+    background-image: rgb(168, 222, 255);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
@@ -73,7 +73,7 @@ p, span, .temp, .date, .location {
 }
 .window {
     display: grid;
-    grid-template-columns: [col1] min-content [col2] min-content;
+    grid-template-columns: [col1] max-content [col2] min-content;
     grid-template-rows: [ro1] min-content [ro2] min-content;
     justify-content: center;
     align-content: center;

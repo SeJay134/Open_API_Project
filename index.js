@@ -58,6 +58,7 @@ function temperature_button_push() { // button go
 
 const currentcity = {}; // transfer data to another function .name .codeweather
 
+
 async function fetchData(cityName) {
   try {
     const request = await fetch(`https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(cityName)}&count=1`);
@@ -88,6 +89,7 @@ async function fetchData(cityName) {
     console.log("current_weather", current_weather); // checker
     currentcity.codeweather = current_weather;
    
+    console.log("currentcity_array", currentcity); // checker object
     /*
     weather = data;
     weather_latitude(weather);
@@ -106,4 +108,91 @@ search_input_form.addEventListener("input", function() {
       search_weather_conditions_button.style.display = "none";
     }
 });
+/*
+const weatherCodes = {
+  0: "Clear sky",
+  1: "Mainly clear",
+  2: "Partly cloudy",
+  3: "Overcast",
+  45: "Fog",
+  48: "Depositing rime fog",
+  51: "Light drizzle",
+  53: "Moderate drizzle",
+  55: "Dense drizzle",
+  56: "Light freezing drizzle",
+  57: "Dense freezing drizzle",
+  61: "Slight rain",
+  63: "Moderate rain",
+  65: "Heavy rain",
+  66: "Light freezing rain",
+  67: "Heavy freezing rain",
+  71: "Slight snowfall",
+  73: "Moderate snowfall",
+  75: "Heavy snowfall",
+  77: "Snow grains",
+  80: "Slight rain showers",
+  81: "Moderate rain showers",
+  82: "Violent rain showers",
+  85: "Slight snow showers",
+  86: "Heavy snow showers",
+  95: "Thunderstorm",
+  96: "Thunderstorm with slight hail",
+  99: "Thunderstorm with heavy hail"
+};
+*/
 
+// add button condition
+search_weather_conditions_button.addEventListener("click", function() {
+  switch(currentcity.codeweather) {
+    case 0: // Clear sky
+    case 1: // Mainly clear
+    case 2: // Partly cloudy
+    case 3: // Overcast
+      document.body.style.backgroundImage = "url('img/sky_clean.jpg')";
+      break;
+    case 45:
+    case 48:
+    case 51:
+      document.body.style.backgroundImage = "url('img/sky_clean.jpg')";
+      break;
+    case 53:
+    case 55:
+    case 56:
+    case 57:
+      document.body.style.backgroundImage = "url('img/sky_clean.jpg')";
+      break;
+    
+    case 61:
+    case 63:
+    case 65:
+      document.body.style.backgroundImage = "url('img/raining.jpg')";
+      break;
+    
+    case 66:
+    case 67:
+      document.body.style.backgroundImage = "url('img/sky_clean.jpg')";
+      break;
+    case 71:
+    case 73:
+    case 75:
+      document.body.style.backgroundImage = "url('img/sky_clean.jpg')";
+      break;
+    case 77:
+    case 80:
+    case 81:
+      document.body.style.backgroundImage = "url('img/sky_clean.jpg')";
+      break;
+    case 82:
+    case 85:
+    case 86:
+      document.body.style.backgroundImage = "url('img/sky_clean.jpg')";
+      break;
+    case 95:
+    case 96:
+    case 99:
+      document.body.style.backgroundImage = "url('img/sky_clean.jpg')";
+      break;
+    default:
+      document.body.style.backgroundImage = "rgb(168, 222, 255)";
+  }
+})
