@@ -23,6 +23,16 @@ fetch('https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&hou
     })
 */
 
+// add footer
+const today = new Date().getFullYear();
+const search_footer = document.querySelector(".footer_container");
+const mAPIp = "My Open API Project";
+const copyright = "Sergei Patrushev";
+const p = document.createElement("p");
+p.innerHTML = `${mAPIp} &nbsp;&nbsp;&nbsp; ${copyright} © ${today}`;
+search_footer.appendChild(p)
+
+
 // add div for city
 const window_div = document.querySelector(".window");
 const create_newdiv_city = document.createElement("div");
@@ -109,7 +119,6 @@ search_input_form.addEventListener("input", function() {
     }
 });
 /*
-const weatherCodes = {
   0: "Clear sky",
   1: "Mainly clear",
   2: "Partly cloudy",
@@ -138,61 +147,64 @@ const weatherCodes = {
   95: "Thunderstorm",
   96: "Thunderstorm with slight hail",
   99: "Thunderstorm with heavy hail"
-};
 */
 
 // add button condition
-search_weather_conditions_button.addEventListener("click", function() {
-  switch(currentcity.codeweather) {
+function choose_wheather_code(code_weather) {
+  document.body.classList.remove("default", "rain", "overcast"); // only 3 now
+  switch(code_weather) {
     case 0: // Clear sky
     case 1: // Mainly clear
     case 2: // Partly cloudy
-    case 3: // Overcast
-      document.body.style.backgroundImage = "url('img/sky_clean.jpg')";
+      document.body.classList.add("sky_clean"); // 1
       break;
+    case 3: // Overcast
     case 45:
     case 48:
     case 51:
-      document.body.style.backgroundImage = "url('img/sky_clean.jpg')";
+      document.body.classList.add("overcast"); // 2
       break;
     case 53:
     case 55:
     case 56:
     case 57:
-      document.body.style.backgroundImage = "url('img/sky_clean.jpg')";
+      document.body.classList.add("default");
       break;
     
     case 61:
     case 63:
     case 65:
-      document.body.style.backgroundImage = "url('img/raining.jpg')";
+      document.body.classList.add("rain"); // 3
       break;
     
     case 66:
     case 67:
-      document.body.style.backgroundImage = "url('img/sky_clean.jpg')";
+      document.body.classList.add("default");
       break;
     case 71:
     case 73:
     case 75:
-      document.body.style.backgroundImage = "url('img/sky_clean.jpg')";
+      document.body.classList.add("default");
       break;
     case 77:
     case 80:
     case 81:
-      document.body.style.backgroundImage = "url('img/sky_clean.jpg')";
+      document.body.classList.add("default");
       break;
     case 82:
     case 85:
     case 86:
-      document.body.style.backgroundImage = "url('img/sky_clean.jpg')";
+      document.body.classList.add("default");
       break;
     case 95:
     case 96:
     case 99:
-      document.body.style.backgroundImage = "url('img/sky_clean.jpg')";
+      document.body.classList.add("default");
       break;
     default:
-      document.body.style.backgroundImage = "rgb(168, 222, 255)";
+      document.body.classList.add("default");
   }
+}
+search_weather_conditions_button.addEventListener("click", function() {
+  choose_wheather_code(currentcity.codeweather);
 })

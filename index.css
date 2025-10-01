@@ -1,10 +1,22 @@
 body {
-    background-image: rgb(168, 222, 255);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
     min-height: 100vh;
 }
+body.default {
+    background-image: url("img/default.jpg");
+}
+body.sky_clean {
+    background-image: url("img/sky_clean.jpg");
+}
+body.overcast {
+    background-image: url("img/overcast.jpg");
+}
+body.rain {
+    background-image: url("img/raining.jpg");
+}
+
 h1, h2, h3 {
   font-family: 'Poppins', sans-serif;
   font-weight: 600;
@@ -14,171 +26,571 @@ p, span, .temp, .date, .location {
   font-family: 'Roboto', sans-serif;
 }
 /* --------------- 480 ----------------- */
-
+@media screen and (max-width: 480px) {
+    .main {
+        display: flex;
+        flex-direction: column;
+        /*border: 1px solid black;*/
+        height: 100vh;
+    }
+    .up_container {
+        /*border: 1px solid rgb(76, 0, 252);*/
+        display: flex;
+        flex-direction: column;
+        max-height: 400px;
+        flex: 1;
+    }
+    .up_box_title {
+        /*border: 1px solid black;*/
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 0.7rem;
+        text-shadow:
+            0.5px 0.5px 0 #ccc,
+            1px 1px 0 #bbb,
+            1.5px 1.5px 0 #aaa,
+            2px 2px 0 #999,
+            2.5px 2.5px 0 #888,
+            3px 3px 0 #777,
+            3.5px 3.5px 0 #666;
+        height: auto;
+        max-height: 150px;
+        min-height: 100px;
+        width: 100%;
+    }
+    .up_box_window {
+        /*border: 1px solid rgb(255, 0, 0);*/
+        display: flex;
+        flex-direction: column;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+    }
+    .window {
+        display: grid;
+        grid-template-columns: [col1] max-content [col2] min-content;
+        grid-template-rows: [ro1] min-content [ro2] min-content;
+        justify-content: center;
+        align-content: center;
+        border: 1px solid rgb(110, 110, 110);
+        width: auto;
+        max-width: 350px;
+        min-width: 250px;
+        height: 100%;
+        max-height: 100vh;
+        min-height: 150px;
+        height: fit-content;
+        background-color: rgba(200, 200, 200, 0.3);
+        border-radius: 20px;
+        margin: 10px 10px 10px 10px;
+        padding: 10px 10px 10px 10px;
+    }
+    .window_city {
+        display: flex;
+        flex-direction: row;
+        /*border: 1px solid black;*/
+        width: auto;
+        min-width: 100px;
+        height: auto;
+        min-height: 100px;
+        font-size: 50px;
+        justify-content: center;
+        align-items: center;
+        padding: 10px 10px 10px 10px;
+    }
+    .window_temperature {
+        display: flex;
+        flex-direction: row;
+        /*border: 1px solid black;*/
+        width: auto;
+        min-width: 100px;
+        height: auto;
+        min-height: 100px;
+        font-size: 50px;
+        justify-content: center;
+        align-items: center;
+        padding: 10px 10px 10px 10px;
+    }
+    .down_container {
+        /*border: 1px solid black;*/
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        flex: 1;
+        max-height: 200px;
+    }
+    .fieldmysity {
+        /*border: 1px solid black;*/
+        margin-top: 25px;
+        margin-bottom: 25px;
+        border-radius: 5px;
+    }
+    #input_form {
+        width: 300px;
+        height: 30px;
+        font-size: 1.0rem;
+        border: 1px solid rgb(110, 110, 110, 0.5);
+        background-color: rgba(200, 200, 200, 0.3);
+    }
+    .box_buttons {
+        /*border: 1px solid black;*/
+        margin-bottom: 25px;
+    }
+    .temperature_button {
+        border: 1px solid black;
+        border-radius: 5px;
+        width: 70px;
+        height: 25px;
+        background-color: rgb(255, 253, 127);
+        font-size: 0.6rem;
+    }
+    .conditions_button {
+        border: 1px solid black;
+        border-radius: 5px;
+        width: 70px;
+        height: 25px;
+        background-color: rgb(255, 253, 127);
+        margin-left: 25px;
+        font-size: 0.6rem;
+    }
+    .footer_container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        /*border: 1px solid black;*/
+        min-height: 60px;
+        font-size: 0.7rem;
+    }
+}
 /* --------------- 481 ----------------- */
-
+@media screen and (min-width: 481px) {
+    .main {
+        display: flex;
+        flex-direction: column;
+        /*border: 1px solid black;*/
+        height: 100vh;
+    }
+    .up_container {
+        /*border: 1px solid rgb(76, 0, 252);*/
+        display: flex;
+        flex-direction: column;
+        max-height: 1000px;
+        flex: 1;
+    }
+    .up_box_title {
+        /*border: 1px solid black;*/
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.0rem;
+        text-shadow:
+            0.5px 0.5px 0 #ccc,
+            1px 1px 0 #bbb,
+            1.5px 1.5px 0 #aaa,
+            2px 2px 0 #999,
+            2.5px 2.5px 0 #888,
+            3px 3px 0 #777,
+            3.5px 3.5px 0 #666;
+        height: auto;
+        max-height: 150px;
+        min-height: 100px;
+        width: 100%;
+    }
+    .up_box_window {
+        /*border: 1px solid rgb(255, 0, 0);*/
+        display: flex;
+        flex-direction: column;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+    }
+    .window {
+        display: grid;
+        grid-template-columns: [col1] max-content [col2] min-content;
+        grid-template-rows: [ro1] min-content [ro2] min-content;
+        justify-content: center;
+        align-content: center;
+        border: 1px solid rgb(110, 110, 110);
+        width: auto;
+        max-width: 700px;
+        min-width: 350px;
+        height: 100%;
+        max-height: 100vh;
+        min-height: 150px;
+        height: fit-content;
+        background-color: rgba(200, 200, 200, 0.3);
+        border-radius: 20px;
+        margin: 25px 25px 25px 25px;
+        padding: 25px 25px 25px 25px;
+    }
+    .window_city {
+        display: flex;
+        flex-direction: row;
+        /*border: 1px solid black;*/
+        width: auto;
+        min-width: 100px;
+        height: auto;
+        min-height: 100px;
+        font-size: 50px;
+        justify-content: center;
+        align-items: center;
+        padding: 25px 25px 25px 25px;
+    }
+    .window_temperature {
+        display: flex;
+        flex-direction: row;
+        /*border: 1px solid black;*/
+        width: auto;
+        min-width: 100px;
+        height: auto;
+        min-height: 100px;
+        font-size: 50px;
+        justify-content: center;
+        align-items: center;
+        padding: 25px 25px 25px 25px;
+    }
+    .down_container {
+        /*border: 1px solid black;*/
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        flex: 1;
+        max-height: 300px;
+    }
+    .fieldmysity {
+        /*border: 1px solid black;*/
+        margin-top: 25px;
+        margin-bottom: 25px;
+        border-radius: 5px;
+    }
+    #input_form {
+        width: 300px;
+        height: 30px;
+        font-size: 1.0rem;
+        border: 1px solid rgb(110, 110, 110, 0.5);
+        background-color: rgba(200, 200, 200, 0.3);
+    }
+    .box_buttons {
+        /*border: 1px solid black;*/
+        margin-bottom: 25px;
+    }
+    .temperature_button {
+        border: 1px solid black;
+        border-radius: 5px;
+        width: 70px;
+        height: 25px;
+        background-color: rgb(255, 253, 127);
+        font-size: 0.6rem;
+    }
+    .conditions_button {
+        border: 1px solid black;
+        border-radius: 5px;
+        width: 70px;
+        height: 25px;
+        background-color: rgb(255, 253, 127);
+        margin-left: 25px;
+        font-size: 0.6rem;
+    }
+    .footer_container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        /*border: 1px solid black;*/
+        min-height: 60px;
+    }
+}
 /* --------------- 769 ----------------- */
-
+@media screen and (min-width: 769px) {
+    .main {
+        display: flex;
+        flex-direction: column;
+        /*border: 1px solid black;*/
+        height: 100vh;
+    }
+    .up_container {
+        /*border: 1px solid rgb(76, 0, 252);*/
+        display: flex;
+        flex-direction: column;
+        max-height: 1000px;
+        flex: 1;
+    }
+    .up_box_title {
+        /*border: 1px solid black;*/
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.3rem;
+        text-shadow:
+            0.5px 0.5px 0 #ccc,
+            1px 1px 0 #bbb,
+            1.5px 1.5px 0 #aaa,
+            2px 2px 0 #999,
+            2.5px 2.5px 0 #888,
+            3px 3px 0 #777,
+            3.5px 3.5px 0 #666;
+        height: auto;
+        max-height: 150px;
+        min-height: 100px;
+        width: 100%;
+    }
+    .up_box_window {
+        /*border: 1px solid rgb(255, 0, 0);*/
+        display: flex;
+        flex-direction: column;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+    }
+    .window {
+        display: grid;
+        grid-template-columns: [col1] max-content [col2] min-content;
+        grid-template-rows: [ro1] min-content [ro2] min-content;
+        justify-content: center;
+        align-content: center;
+        border: 1px solid rgb(110, 110, 110);
+        width: auto;
+        max-width: 900px;
+        min-width: 350px;
+        height: 100%;
+        max-height: 100vh;
+        min-height: 250px;
+        height: fit-content;
+        background-color: rgba(200, 200, 200, 0.3);
+        border-radius: 20px;
+        margin: 25px 25px 25px 25px;
+        padding: 25px 25px 25px 25px;
+    }
+    .window_city {
+        display: flex;
+        flex-direction: row;
+        /*border: 1px solid black;*/
+        width: auto;
+        min-width: 100px;
+        height: auto;
+        min-height: 100px;
+        font-size: 70px;
+        justify-content: center;
+        align-items: center;
+        padding: 25px 25px 25px 25px;
+    }
+    .window_temperature {
+        display: flex;
+        flex-direction: row;
+        /*border: 1px solid black;*/
+        width: auto;
+        min-width: 100px;
+        height: auto;
+        min-height: 100px;
+        font-size: 70px;
+        justify-content: center;
+        align-items: center;
+        padding: 25px 25px 25px 25px;
+    }
+    .down_container {
+        /*border: 1px solid black;*/
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        flex: 1;
+        max-height: 300px;
+    }
+    .fieldmysity {
+        /*border: 1px solid black;*/
+        margin-top: 25px;
+        margin-bottom: 25px;
+        border-radius: 5px;
+    }
+    #input_form {
+        width: 400px;
+        height: 40px;
+        font-size: 1.3rem;
+        border: 1px solid rgb(110, 110, 110, 0.5);
+        background-color: rgba(200, 200, 200, 0.3);
+    }
+    .box_buttons {
+        /*border: 1px solid black;*/
+        margin-bottom: 25px;
+    }
+    .temperature_button {
+        border: 1px solid black;
+        border-radius: 5px;
+        width: 90px;
+        height: 35px;
+        background-color: rgb(255, 253, 127);
+        font-size: 0.8rem;
+    }
+    .conditions_button {
+        border: 1px solid black;
+        border-radius: 5px;
+        width: 90px;
+        height: 35px;
+        background-color: rgb(255, 253, 127);
+        margin-left: 25px;
+        font-size: 0.8rem;
+    }
+    .footer_container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        /*border: 1px solid black;*/
+        min-height: 60px;
+    }
+}
 /* --------------- 1025 ---------------- */
-.main {
-    display: flex;
-    flex-direction: column;
-    border: 1px solid black;
-    height: 100vh;
-}
-.up_container {
-    border: 1px solid rgb(76, 0, 252);
-    display: flex;
-    flex-direction: column;
-    
-    max-height: 1000px;
-    flex: 1;
-}
-/*
-.up_box {
-    border: 1px solid black;
-    margin-bottom: 10px;
-}
-*/
-.up_box_title {
-    border: 1px solid black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.5rem;
-    text-shadow:
-        0.5px 0.5px 0 #ccc,
-        1px 1px 0 #bbb,
-        1.5px 1.5px 0 #aaa,
-        2px 2px 0 #999,
-        2.5px 2.5px 0 #888,
-        3px 3px 0 #777,
-        3.5px 3.5px 0 #666;
-    height: auto;
-    max-height: 150px;
-    min-height: 100px;
-    width: 100%;
-}
-.up_box_window {
-    border: 1px solid rgb(255, 0, 0);
-    display: flex;
-    flex-direction: column;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-    
-}
-.window {
-    display: grid;
-    grid-template-columns: [col1] max-content [col2] min-content;
-    grid-template-rows: [ro1] min-content [ro2] min-content;
-    justify-content: center;
-    align-content: center;
-    border: 1px solid rgb(110, 110, 110);
-    width: auto;
-    max-width: 1000px;
-    min-width: 350px;
-    height: 100%;
-    max-height: 100vh;
-    min-height: 250px;
-    height: fit-content;
-    background-color: rgba(200, 200, 200, 0.3);
-    border-radius: 20px;
-    margin: 25px 25px 25px 25px;
-    padding: 25px 25px 25px 25px;
-}
-.window_city {
-    display: flex;
-    flex-direction: row;
-    border: 1px solid black;
-    width: auto;
-    min-width: 100px;
-    height: auto;
-    min-height: 100px;
-    font-size: 100px;
-    justify-content: center;
-    align-items: center;
-    padding: 25px 25px 25px 25px;
-    
-}
-.window_temperature {
-    display: flex;
-    flex-direction: row;
-    border: 1px solid black;
-    width: auto;
-    min-width: 100px;
-    height: auto;
-    min-height: 100px;
-    font-size: 100px;
-    justify-content: center;
-    align-items: center;
-    padding: 25px 25px 25px 25px;
-    
-}
-.down_container {
-    border: 1px solid black;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    flex: 1;
-    max-height: 300px;
-    
-}
-/*
-.down_box {
-    border: 1px solid black;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-top: 10px;
-}
-*/
-.fieldmysity {
-    border: 1px solid black;
-    margin-top: 25px;
-    margin-bottom: 25px;
-    border-radius: 5px;
-    opacity: 0.5;
-}
-#input_form {
-    width: 400px;
-    height: 40px;
-    font-size: 1.3rem;
-}
-.box_buttons {
-    border: 1px solid black;
-    margin-bottom: 25px;
-}
-.temperature_button {
-    border: 1px solid black;
-    border-radius: 5px;
-    width: 90px;
-    height: 35px;
-    background-color: rgb(255, 253, 127);
-}
-.conditions_button {
-    border: 1px solid black;
-    border-radius: 5px;
-    width: 90px;
-    height: 35px;
-    background-color: rgb(255, 253, 127);
-    margin-left: 25px;
-}
-.footer_container {
-    display: flex;
-    
-    flex-direction: column;
-    align-items: center;
-    justify-content: end;
-    border: 1px solid black;
-    min-height: 60px;
-/*    height: 100%;
-    max-height: 100vh;
-    
-    margin-top: 10px;*/
+@media screen and (min-width: 1025px) {
+    .main {
+        display: flex;
+        flex-direction: column;
+        /*border: 1px solid black;*/
+        height: 100vh;
+    }
+    .up_container {
+        /*border: 1px solid rgb(76, 0, 252);*/
+        display: flex;
+        flex-direction: column;
+        max-height: 1000px;
+        flex: 1;
+    }
+    .up_box_title {
+        /*border: 1px solid black;*/
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.5rem;
+        text-shadow:
+            0.5px 0.5px 0 #ccc,
+            1px 1px 0 #bbb,
+            1.5px 1.5px 0 #aaa,
+            2px 2px 0 #999,
+            2.5px 2.5px 0 #888,
+            3px 3px 0 #777,
+            3.5px 3.5px 0 #666;
+        height: auto;
+        max-height: 150px;
+        min-height: 100px;
+        width: 100%;
+    }
+    .up_box_window {
+        /*border: 1px solid rgb(255, 0, 0);*/
+        display: flex;
+        flex-direction: column;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+    }
+    .window {
+        display: grid;
+        grid-template-columns: [col1] max-content [col2] min-content;
+        grid-template-rows: [ro1] min-content [ro2] min-content;
+        justify-content: center;
+        align-content: center;
+        border: 1px solid rgb(110, 110, 110);
+        width: auto;
+        max-width: 1000px;
+        min-width: 350px;
+        height: 100%;
+        max-height: 100vh;
+        min-height: 250px;
+        height: fit-content;
+        background-color: rgba(200, 200, 200, 0.3);
+        border-radius: 20px;
+        margin: 25px 25px 25px 25px;
+        padding: 25px 25px 25px 25px;
+    }
+    .window_city {
+        display: flex;
+        flex-direction: row;
+        /*border: 1px solid black;*/
+        width: auto;
+        min-width: 100px;
+        height: auto;
+        min-height: 100px;
+        font-size: 100px;
+        justify-content: center;
+        align-items: center;
+        padding: 25px 25px 25px 25px;
+    }
+    .window_temperature {
+        display: flex;
+        flex-direction: row;
+        /*border: 1px solid black;*/
+        width: auto;
+        min-width: 100px;
+        height: auto;
+        min-height: 100px;
+        font-size: 100px;
+        justify-content: center;
+        align-items: center;
+        padding: 25px 25px 25px 25px;
+    }
+    .down_container {
+        /*border: 1px solid black;*/
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        flex: 1;
+        max-height: 300px;
+    }
+    .fieldmysity {
+        /*border: 1px solid black;*/
+        margin-top: 25px;
+        margin-bottom: 25px;
+        border-radius: 5px;
+    }
+    #input_form {
+        width: 400px;
+        height: 40px;
+        font-size: 1.3rem;
+        border: 1px solid rgb(110, 110, 110, 0.5);
+        background-color: rgba(200, 200, 200, 0.3);
+    }
+    .box_buttons {
+        /*border: 1px solid black;*/
+        margin-bottom: 25px;
+    }
+    .temperature_button {
+        border: 1px solid black;
+        border-radius: 5px;
+        width: 90px;
+        height: 35px;
+        background-color: rgb(255, 253, 127);
+        font-size: 0.8rem;
+    }
+    .conditions_button {
+        border: 1px solid black;
+        border-radius: 5px;
+        width: 90px;
+        height: 35px;
+        background-color: rgb(255, 253, 127);
+        margin-left: 25px;
+        font-size: 0.8rem;
+    }
+    .footer_container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        /*border: 1px solid black;*/
+        min-height: 60px;
+    }
 }
