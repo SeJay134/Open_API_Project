@@ -23,6 +23,16 @@ fetch('https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&hou
     })
 */
 
+// add footer
+const today = new Date().getFullYear();
+const search_footer = document.querySelector(".footer_container");
+const mAPIp = "My Open API Project";
+const copyright = "Sergei Patrushev";
+const p = document.createElement("p");
+p.innerHTML = `${mAPIp} &nbsp;&nbsp;&nbsp; ${copyright} © ${today}`;
+search_footer.appendChild(p)
+
+
 // add div for city
 const window_div = document.querySelector(".window");
 const create_newdiv_city = document.createElement("div");
@@ -56,7 +66,8 @@ function temperature_button_push() { // button go
     fetchData(city); // run function
 }
 
-const currentcity = {}; // transfer city to another function .name
+const currentcity = {}; // transfer data to another function .name .codeweather
+
 
 async function fetchData(cityName) {
   try {
@@ -80,13 +91,15 @@ async function fetchData(cityName) {
     const transform_data1 = await respond.json(); // get current temperature
     console.log("transform_data_async1", transform_data1); // checker
 
-    const current_temperature = transform_data1.current_weather.temperature; // from array
+    const current_temperature = (transform_data1.current_weather.temperature * 9/5) + 32; // from array
     document.querySelector('.window_city').innerHTML = `${currentcity.name}`; // show city
-    document.querySelector('.window_temperature').innerHTML = `+${current_temperature}°C`; // show temp
+    document.querySelector('.window_temperature').innerHTML = `${Math.floor(current_temperature)}°F`; // show temp
     // current_weather.weathercode
     const current_weather = transform_data1.current_weather.weathercode; // get code weather
     console.log("current_weather", current_weather); // checker
-
+    currentcity.codeweather = current_weather;
+   
+    console.log("currentcity_array", currentcity); // checker object
     /*
     weather = data;
     weather_latitude(weather);
@@ -97,3 +110,101 @@ async function fetchData(cityName) {
   }
 }
 
+// add bottom condition
+search_input_form.addEventListener("input", function() {
+  if (search_input_form.value.trim() !== "") {
+    search_weather_conditions_button.style.display = "inline-block";
+  } else {
+      search_weather_conditions_button.style.display = "none";
+    }
+});
+/*
+  0: "Clear sky",
+  1: "Mainly clear",
+  2: "Partly cloudy",
+  3: "Overcast",
+  45: "Fog",
+  48: "Depositing rime fog",
+  51: "Light drizzle",
+  53: "Moderate drizzle",
+  55: "Dense drizzle",
+  56: "Light freezing drizzle",
+  57: "Dense freezing drizzle",
+  61: "Slight rain",
+  63: "Moderate rain",
+  65: "Heavy rain",
+  66: "Light freezing rain",
+  67: "Heavy freezing rain",
+  71: "Slight snowfall",
+  73: "Moderate snowfall",
+  75: "Heavy snowfall",
+  77: "Snow grains",
+  80: "Slight rain showers",
+  81: "Moderate rain showers",
+  82: "Violent rain showers",
+  85: "Slight snow showers",
+  86: "Heavy snow showers",
+  95: "Thunderstorm",
+  96: "Thunderstorm with slight hail",
+  99: "Thunderstorm with heavy hail"
+*/
+
+// add button condition
+function choose_wheather_code(code_weather) {
+  document.body.classList.remove("default", "rain", "overcast"); // only 3 now
+  switch(code_weather) {
+    case 0: // Clear sky
+    case 1: // Mainly clear
+    case 2: // Partly cloudy
+      document.body.classList.add("sky_clean"); // 1
+      break;
+    case 3: // Overcast
+    case 45:
+    case 48:
+    case 51:
+      document.body.classList.add("overcast"); // 2
+      break;
+    case 53:
+    case 55:
+    case 56:
+    case 57:
+      document.body.classList.add("default");
+      break;
+    
+    case 61:
+    case 63:
+    case 65:
+      document.body.classList.add("rain"); // 3
+      break;
+    
+    case 66:
+    case 67:
+      document.body.classList.add("default");
+      break;
+    case 71:
+    case 73:
+    case 75:
+      document.body.classList.add("default");
+      break;
+    case 77:
+    case 80:
+    case 81:
+      document.body.classList.add("default");
+      break;
+    case 82:
+    case 85:
+    case 86:
+      document.body.classList.add("default");
+      break;
+    case 95:
+    case 96:
+    case 99:
+      document.body.classList.add("default");
+      break;
+    default:
+      document.body.classList.add("default");
+  }
+}
+search_weather_conditions_button.addEventListener("click", function() {
+  choose_wheather_code(currentcity.codeweather);
+})
