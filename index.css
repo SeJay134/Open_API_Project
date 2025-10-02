@@ -158,6 +158,9 @@ p, span, .temp, .date, .location {
         margin-left: 25px;
         font-size: 0.6rem;
     }
+    .space {
+        flex: 1;
+    }
     .footer_container {
         display: flex;
         flex-direction: row;
@@ -301,6 +304,9 @@ p, span, .temp, .date, .location {
         margin-left: 25px;
         font-size: 0.6rem;
     }
+    .space {
+        flex: 1;
+    }
     .footer_container {
         display: flex;
         flex-direction: row;
@@ -308,6 +314,7 @@ p, span, .temp, .date, .location {
         justify-content: center;
         /*border: 1px solid black;*/
         min-height: 60px;
+        font-size: 0.8rem;
     }
 }
 /* --------------- 769 ----------------- */
@@ -443,6 +450,9 @@ p, span, .temp, .date, .location {
         margin-left: 25px;
         font-size: 0.8rem;
     }
+    .space {
+        flex: 1;
+    }
     .footer_container {
         display: flex;
         flex-direction: row;
@@ -450,6 +460,7 @@ p, span, .temp, .date, .location {
         justify-content: center;
         /*border: 1px solid black;*/
         min-height: 60px;
+        font-size: 0.8rem;
     }
 }
 /* --------------- 1025 ---------------- */
@@ -585,6 +596,9 @@ p, span, .temp, .date, .location {
         margin-left: 25px;
         font-size: 0.8rem;
     }
+    .space {
+        flex: 1;
+    }
     .footer_container {
         display: flex;
         flex-direction: row;
@@ -592,5 +606,6 @@ p, span, .temp, .date, .location {
         justify-content: center;
         /*border: 1px solid black;*/
         min-height: 60px;
+        font-size: 1.0rem;
     }
 }
