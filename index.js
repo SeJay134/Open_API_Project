@@ -122,9 +122,11 @@ search_input_form.addEventListener("input", function() {
   0: "Clear sky",
   1: "Mainly clear",
   2: "Partly cloudy",
+
   3: "Overcast",
   45: "Fog",
   48: "Depositing rime fog",
+
   51: "Light drizzle",
   53: "Moderate drizzle",
   55: "Dense drizzle",
@@ -135,15 +137,19 @@ search_input_form.addEventListener("input", function() {
   65: "Heavy rain",
   66: "Light freezing rain",
   67: "Heavy freezing rain",
+
   71: "Slight snowfall",
   73: "Moderate snowfall",
   75: "Heavy snowfall",
   77: "Snow grains",
+
   80: "Slight rain showers",
   81: "Moderate rain showers",
   82: "Violent rain showers",
+
   85: "Slight snow showers",
   86: "Heavy snow showers",
+
   95: "Thunderstorm",
   96: "Thunderstorm with slight hail",
   99: "Thunderstorm with heavy hail"
@@ -151,55 +157,55 @@ search_input_form.addEventListener("input", function() {
 
 // add button condition
 function choose_wheather_code(code_weather) {
-  document.body.classList.remove("default", "rain", "overcast"); // only 3 now
+  document.body.classList.remove("default", "sky_clean", "overcast", "rain", "snow", "strongrain", "thunderstorm");
   switch(code_weather) {
     case 0: // Clear sky
     case 1: // Mainly clear
     case 2: // Partly cloudy
       document.body.classList.add("sky_clean"); // 1
       break;
+
     case 3: // Overcast
     case 45:
     case 48:
-    case 51:
       document.body.classList.add("overcast"); // 2
       break;
+
+    case 51: // rain
     case 53:
     case 55:
     case 56:
     case 57:
-      document.body.classList.add("default");
-      break;
-    
     case 61:
     case 63:
     case 65:
+    case 66:
+    case 67:
       document.body.classList.add("rain"); // 3
       break;
     
-    case 66:
-    case 67:
-      document.body.classList.add("default");
-      break;
-    case 71:
+    case 71: // snow
     case 73:
     case 75:
-      document.body.classList.add("default");
-      break;
     case 77:
-    case 80:
+      document.body.classList.add("snow"); // 4
+      break;
+    
+    case 80: // strong rain
     case 81:
-      document.body.classList.add("default");
-      break;
     case 82:
-    case 85:
-    case 86:
-      document.body.classList.add("default");
+      document.body.classList.add("strongrain"); // 5
       break;
-    case 95:
+    
+    case 85: // snow
+    case 86:
+      document.body.classList.add("snow"); // 6
+      break;
+
+    case 95: // thunderstorm
     case 96:
     case 99:
-      document.body.classList.add("default");
+      document.body.classList.add("thunderstorm"); // 7
       break;
     default:
       document.body.classList.add("default");
