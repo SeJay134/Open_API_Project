@@ -188,6 +188,8 @@ function choose_wheather_code(code_weather) {
     case 73:
     case 75:
     case 77:
+    case 85:
+    case 86:
       document.body.classList.add("snow"); // 4
       break;
     
@@ -195,11 +197,6 @@ function choose_wheather_code(code_weather) {
     case 81:
     case 82:
       document.body.classList.add("strongrain"); // 5
-      break;
-    
-    case 85: // snow
-    case 86:
-      document.body.classList.add("snow"); // 6
       break;
 
     case 95: // thunderstorm
