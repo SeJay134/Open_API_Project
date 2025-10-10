@@ -118,6 +118,123 @@ search_input_form.addEventListener("input", function() {
       search_weather_conditions_button.style.display = "none";
     }
 });
+
+// array with code and description
+const code_weather = [
+  Clear_sky = {
+    code: 0,
+    description: "Clear sky"
+  },
+  Mainly_clear = {
+    code: 1,
+    description: "Mainly clear"
+  },
+  Partly_cloudy = {
+    code: 2,
+    description: "Partly cloudy"
+  },
+  Overcast = {
+    code: 3,
+    description: "Overcast"
+  },
+  Fog = {
+    code: 45,
+    description: "Fog"
+  },
+  Depositing_rime_fog = {
+    code: 48,
+    description: "Depositing rime fog"
+  },
+  Light_drizzle = {
+    code: 51,
+    description: "Light drizzle"
+  },
+  Moderate_drizzle = {
+    code: 53,
+    description: "Moderate drizzle"
+  },
+  Dense_drizzle = {
+    code: 55,
+    description: "Dense drizzle"
+  },
+  Light_freezing_drizzle = {
+    code: 56,
+    description: "Light freezing drizzle"
+  },
+  Dense_freezing_drizzle = {
+    code: 57,
+    description: "Dense freezing drizzle"
+  },
+  Slight_rain = {
+    code: 61,
+    description: "Slight rain"
+  },
+  Moderate_rain = {
+    code: 63,
+    description: "Moderate rain"
+  },
+  Heavy_rain = {
+    code: 65,
+    description: "Heavy rain"
+  },
+  Light_freezing_rain = {
+    code: 66,
+    description: "Light freezing rain"
+  },
+  Heavy_freezing_rain = {
+    code: 67,
+    description: "Heavy freezing rain"
+  },
+  Slight_snowfall = {
+    code: 71,
+    description: "Slight snowfall"
+  },
+  Moderate_snowfall = {
+    code: 73,
+    description: "Moderate snowfall"
+  },
+  Heavy_snowfall = {
+    code: 75,
+    description: "Heavy snowfall"
+  },
+  Snow_grains = {
+    code: 77,
+    description: "Snow grains"
+  },
+  Slight_rain_showers = {
+    code: 80,
+    description: "Slight rain showers"
+  },
+  Moderate_rain_showers = {
+    code: 81,
+    description: "Moderate rain showers"
+  },
+  Violent_rain_showers = {
+    code: 82,
+    description: "Violent rain showers"
+  },
+  Slight_snow_showers = {
+    code: 85,
+    description: "Slight snow showers"
+  },
+  Heavy_snow_showers = {
+    code: 86,
+    description: "Heavy snow showers"
+  },
+  Thunderstorm = {
+    code: 95,
+    description: "Thunderstorm"
+  },
+  Thunderstorm_slight_hail = {
+    code: 96,
+    description: "Thunderstorm with slight hail"
+  },
+  Thunderstorm_heavy_hail = {
+    code: 99,
+    description: "Thunderstorm with heavy hail"
+  }
+];
+
 /*
   0: "Clear sky",
   1: "Mainly clear",
