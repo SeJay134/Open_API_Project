@@ -16,6 +16,16 @@ body.overcast {
 body.rain {
     background-image: url("img/raining.jpg");
 }
+body.snow {
+    background-image: url("img/snow.jpg");
+}
+body.strongrain {
+    background-image: url("img/strongrain.jpg");
+}
+body.thunderstorm {
+    background-image: url("img/thunderstorm.jpg");
+}
+
 
 h1, h2, h3 {
   font-family: 'Poppins', sans-serif;
